@@ -13,25 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('blog.index');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('post/{id}', function () {
-    return view('blog.post');
-});
+Route::get('/', 'RestaurantController@index');
 
-Route::get('/about', function () {
-    return view('other.about');
-});
+Route::get('/list', 'RestaurantController@list');
 
-Route::get('/admin', function () {
-    return view('admin.index');
-});
+Route::view('/add', 'add');
 
-Route::post('/admin/create', function () {
-    return view('admin.create');
-});
-
-Route::put('admin/edit/{id}', function ($id) {
-});
+Route::post('/add', 'RestaurantController@add');
